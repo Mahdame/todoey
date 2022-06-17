@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:todoey/utilities/constants.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  AddTaskScreen({required this.addTaskCallback});
+
+  final Function(String?) addTaskCallback;
+
   @override
   Widget build(BuildContext context) {
+    String? newTaskTitle;
+
     return Container(
       color: addTaskBackgroundColor,
       child: Container(
@@ -19,7 +25,7 @@ class AddTaskScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Adicionar Tarefa',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -28,25 +34,30 @@ class AddTaskScreen extends StatelessWidget {
                   color: mainBackgroundColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               TextField(
                 autofocus: true,
                 textAlign: TextAlign.center,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: mainBackgroundColor)),
                   hintText: 'Nova tarefa',
                 ),
+                onChanged: (value) {
+                  newTaskTitle = value;
+                },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               TextButton(
                 style: flatButtonStyle,
-                child: Text('Criar Tarefa'),
-                onPressed: () {},
+                child: const Text('Criar Tarefa'),
+                onPressed: () {
+                  addTaskCallback(newTaskTitle);
+                },
               ),
             ],
           ),
