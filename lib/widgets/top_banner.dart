@@ -31,7 +31,7 @@ class TopBanner extends StatelessWidget {
                 color: Colors.white),
           ),
           Text(
-            '12 tasks',
+            '12 tarefas',
             style: TextStyle(
               fontSize: 18.0,
               color: Colors.white,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoey/screens/tasks_screen.dart';
+import 'package:todoey/utilities/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: TasksScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
