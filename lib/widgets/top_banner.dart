@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todoey/models/task.dart';
 import 'package:todoey/utilities/constants.dart';
 
+import '../models/task_data.dart';
+
 class TopBanner extends StatefulWidget {
-  TopBanner({required this.tasks});
+  const TopBanner({required this.tasks});
   final List<Task> tasks;
 
   @override
@@ -19,7 +22,7 @@ class _TopBannerState extends State<TopBanner> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor: Colors.white,
             radius: 30.0,
             child: Icon(
@@ -28,10 +31,10 @@ class _TopBannerState extends State<TopBanner> {
               color: mainBackgroundColor,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
-          Text(
+          const Text(
             'Todoey',
             style: TextStyle(
                 fontSize: 50.0,
@@ -39,8 +42,8 @@ class _TopBannerState extends State<TopBanner> {
                 color: Colors.white),
           ),
           Text(
-            '${widget.tasks.length} tarefas',
-            style: TextStyle(
+            '${Provider.of<TaskData>(context).taskCount} tarefas',
+            style: const TextStyle(
               fontSize: 18.0,
               color: Colors.white,
             ),

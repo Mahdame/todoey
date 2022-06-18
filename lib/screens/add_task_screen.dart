@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todoey/utilities/constants.dart';
 
+import '../models/task_data.dart';
+
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen({required this.addTaskCallback});
-
-  final Function(String?) addTaskCallback;
-
   @override
   Widget build(BuildContext context) {
     String? newTaskTitle;
@@ -42,7 +41,8 @@ class AddTaskScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 decoration: const InputDecoration(
                   focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: mainBackgroundColor)),
+                    borderSide: BorderSide(color: mainBackgroundColor),
+                  ),
                   hintText: 'Nova tarefa',
                 ),
                 onChanged: (value) {
@@ -56,7 +56,8 @@ class AddTaskScreen extends StatelessWidget {
                 style: flatButtonStyle,
                 child: const Text('Criar Tarefa'),
                 onPressed: () {
-                  addTaskCallback(newTaskTitle);
+                  Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle!);
+                  Navigator.pop(context);
                 },
               ),
             ],
