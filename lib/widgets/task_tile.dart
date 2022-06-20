@@ -73,20 +73,33 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String dialogMessage = 'Esta ação é irreversível! \n Tem certeza?';
-    return ListTile(
-      onLongPress: () => Platform.isIOS
-          ? showAlertDialog(context, dialogMessage)
-          : showMyDialog(context, dialogMessage),
-      // longPressCallback,
-      title: Text(
-        taskTitle!,
-        style: TextStyle(
-            decoration: isChecked! ? TextDecoration.lineThrough : null),
-      ),
-      trailing: Checkbox(
-        activeColor: mainBackgroundColor,
-        value: isChecked,
-        onChanged: checkboxCallback,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: secBackgroundColor,
+          borderRadius: BorderRadius.all(
+            Radius.circular(15.0),
+          ),
+
+        ),
+        child: ListTile(
+          onLongPress: () => Platform.isIOS
+              ? showAlertDialog(context, dialogMessage)
+              : showMyDialog(context, dialogMessage),
+          // longPressCallback,
+          title: Text(
+            taskTitle!,
+            style: TextStyle(
+              color: Colors.black87,
+                decoration: isChecked! ? TextDecoration.lineThrough : null),
+          ),
+          trailing: Checkbox(
+            activeColor: mainBackgroundColor,
+            value: isChecked,
+            onChanged: checkboxCallback,
+          ),
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const mainBackgroundColor = Color(0xFF40E0D0);
+const mainBackgroundColor = Color(0xFFE97187);
+const secBackgroundColor = Color(0x4AFFC3D3);
 const addTaskBackgroundColor = Color(0xFF757575);
 
 final ButtonStyle flatButtonStyle = TextButton.styleFrom(

@@ -27,7 +27,7 @@ class _TopBannerState extends State<TopBanner> {
             radius: 30.0,
             child: Icon(
               Icons.list,
-              size: 30.0,
+              size: 40.0,
               color: mainBackgroundColor,
             ),
           ),
@@ -38,8 +38,11 @@ class _TopBannerState extends State<TopBanner> {
             'Todoey',
             style: TextStyle(
                 fontSize: 50.0,
-                fontWeight: FontWeight.w700,
+                fontFamily: 'Pacifico',
                 color: Colors.white),
+          ),
+          const SizedBox(
+            height: 3.0,
           ),
           Text(
             '${Provider.of<TaskData>(context).taskCount} tarefas',
